@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZScripty: The Other Side Of Roblox Scripting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .download-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .download-section p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .download-btn.secondary:hover {
+            background: #f8f9fa;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Details Section */
+        .details {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .details h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .detail-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-item li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .detail-item li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .version-info {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>THE SCRIPT THAT'LL CHANGE EVERYTHING</h1>
+        <p>EZScripty allows you to save time, start scripting in Luau, or both.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Easy and fast to download</h3>
+                    <p>It is so easy that an fish can do that!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Safe</h3>
+                    <p>The script is safe and only works Server-Side.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Open-Source</h3>
+                    <p>Entirely open-source. Useless for most of you, but I did it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <h2>Get EZScripty</h2>
+            <p>Free Foverer • No ads • Fast to config</p>
+            <div class="download-buttons">
+                <button class="download-btn" onclick="download()">
+                    Install Latest (RBXL) (If you don't have any project)
+                </button>
+                <button class="download-btn" onclick="download()">
+                    Install Latest (LUA) (If you already have one)
+                </button>
+                <button class="download-btn secondary" onclick="download()">
+                    All Versions
+                </button>
+                <button class="download-btn secondary" onclick="download()">
+                    How to install
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details">
+        <div class="container">
+            <h2>Everything you need to know</h2>
+            <div class="details-content">
+                <div class="detail-item">
+                    <h3>For who EZScripty has been made?</h3>
+                    <ul>
+                        <li>For Luau beginners</li>
+                        <li>For those who don't want to loose time</li>
+                        <li>For those who wants to see the Side of Roblox that'll never appear</li>
+                        <li>For those who left Luau scripting because of it's difficulty</li>
+                        <li>For curious ones</li>
+                    </ul>
+                </div>
+
+                <div class="detail-item">
+                    <h3>How to install (.RBXL)?</h3>
+                    <ul>
+                        <li>Download the RBXL file from teamgeekyt.github.io/ezscripty. Other websites are not official!</li>
+                        <li>Open it with Roblox Studio.</li>
+                        <li>Done! You now have EZScripty!</li>
+                    </ul>
+
+                    <h3>How to install (.LUAU)?</h3>
+                    <ul>
+                        <li>Download the LUA file from teamgeekyt.github.io/ezscripty. Other websites are not official!</li>
+                        <li>Open it with any text software.</li>
+                        <li>Copy the entire code.</li>
+                        <li>Create an ModuleScript in ServerScriptService named "EZScripty"</li>
+                        <li>Paste the code in it</li>
+                        <li>Done! You now have EZScripty!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025-2026 EZScripty. All rights reserved.</p>
+        <div class="version-info">Version (UNRELEASED)</div>
+    </footer>
+
+    <script>
+        function download() {
+            window.location.href = "";
+        }
+
+        // Animation au scroll (optionnel)
+        window.addEventListener('scroll', () => {
+            const features = document.querySelectorAll('.feature-card, .detail-item');
+            features.forEach(feature => {
+                const position = feature.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(position < screenPosition) {
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialisation des styles pour l'animation
+        document.querySelectorAll('.feature-card, .detail-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+    </script>
+</body>
+</html>
